@@ -9,12 +9,12 @@ function HomePage() {
   }, [])
 
   const [products, setProducts] = useState([])
-  console.log(products)
+  // console.log(products)
 
   const fetchProducts = async () => {
     try {
       const response = await axios.get(`${import.meta.env.VITE_APP_API}`)
-      // console.log(response.data)
+      // console.log(response.data.products)
       setProducts(response.data.products)
     } catch (error) {
       console.log(error)
@@ -25,6 +25,8 @@ function HomePage() {
       <div className='row g-4'>
         {!products.length == 0 && products.map((item) => {
           return <ProductCard
+            key={item.id}
+            id={item.id}
             img={item.thumbnail}
             price={item.price}
             title={item.title}
