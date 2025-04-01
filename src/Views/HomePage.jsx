@@ -14,7 +14,7 @@ function HomePage() {
   const fetchProducts = async () => {
     try {
       const response = await axios.get(`${import.meta.env.VITE_APP_API}`)
-      // console.log(response.data.products)
+      // console.log(response)
       setProducts(response.data.products)
     } catch (error) {
       console.log(error)
@@ -25,6 +25,7 @@ function HomePage() {
       <div className='row g-4'>
         {!products.length == 0 && products.map((item) => {
           return <ProductCard
+            data={item}
             key={item.id}
             id={item.id}
             img={item.thumbnail}

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 
 function ProductInfo() {
   const param = useParams()
-  console.log(param.id)
+  // console.log(param.id)
 
   useEffect(() => {
     FetchProduct()
